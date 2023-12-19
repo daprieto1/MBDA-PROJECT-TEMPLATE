@@ -1,7 +1,11 @@
 #!/bin/bash
 
-# Specify the folder path
-folder_path = $0
+if [ "$#" -lt 1 ]; then
+    echo "Usage: $0 <folder_path>"
+    exit 1
+fi
+
+folder_path="$1"
 echo "Processing folder: $folder_path"
 
 for file in "$folder_path"/*; do
