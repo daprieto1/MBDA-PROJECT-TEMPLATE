@@ -47,8 +47,8 @@ jobs:
       - name: Execute Structure and Declarative Constraints
         run: |
           export PGPASSWORD=your_password 
-          ./src/scripts/execute_sql_files.sh
-          psql -h localhost -U your_username -d your_database -a -f src/1_structure/1_tables.sql 
+          ./src/scripts/execute_sql_files.sh ./src/1_structure
+          
           psql -h localhost -U your_username -d your_database -a -f src/1_structure/2_attributes.sql 
           psql -h localhost -U your_username -d your_database -a -f src/1_structure/3_primary.sql 
           psql -h localhost -U your_username -d your_database -a -f src/1_structure/4_unique.sql 
