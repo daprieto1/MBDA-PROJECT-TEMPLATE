@@ -8,6 +8,8 @@ fi
 folder_path="$1"
 echo "Processing folder: $folder_path"
 
+set -e
+
 for file in "$folder_path"/*; do
     if [ -f "$file" ]; then
         echo "Processing file: $file"
