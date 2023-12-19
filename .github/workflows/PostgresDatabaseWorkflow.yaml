@@ -33,7 +33,7 @@ jobs:
           # Wait for PostgreSQL to start
           sleep 10
           
-          PGPASSWORD=your_password 
+          export PGPASSWORD=your_password 
 
           # Print PostgreSQL version for debugging
           psql -h localhost -U your_username -d your_database -c "SELECT version();"
@@ -43,7 +43,7 @@ jobs:
 
       - name: Execute Structure and Declarative Constraints
         run: |
-          PGPASSWORD=your_password 
+          export PGPASSWORD=your_password 
           psql -h localhost -U your_username -d your_database -a -f src/1_structure/1_tables.sql 
           psql -h localhost -U your_username -d your_database -a -f src/1_structure/2_attributes.sql 
           psql -h localhost -U your_username -d your_database -a -f src/1_structure/3_primary.sql 
