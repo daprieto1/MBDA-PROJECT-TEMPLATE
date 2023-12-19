@@ -41,9 +41,13 @@ jobs:
           # Run any initialization scripts
           psql -h localhost -U your_username -d your_database -c "CREATE EXTENSION IF NOT EXISTS pgcrypto;"
 
+          # Run script permissions 
+          chmod +x ./src/scripts/execute_sql_files.sh
+
       - name: Execute Structure and Declarative Constraints
         run: |
           export PGPASSWORD=your_password 
+          ./src/scripts/execute_sql_files.sh
           psql -h localhost -U your_username -d your_database -a -f src/1_structure/1_tables.sql 
           psql -h localhost -U your_username -d your_database -a -f src/1_structure/2_attributes.sql 
           psql -h localhost -U your_username -d your_database -a -f src/1_structure/3_primary.sql 
