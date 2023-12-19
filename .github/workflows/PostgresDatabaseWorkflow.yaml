@@ -32,12 +32,12 @@ jobs:
         run: |
           # Wait for PostgreSQL to start
           sleep 10
-
+          PGPASSWORD=your_password 
           # Print PostgreSQL version for debugging
           psql -h localhost -U your_username -d your_database -c "SELECT version();"
 
           # Run any initialization scripts
-          PGPASSWORD=your_password psql -h localhost -U your_username -d your_database -c "CREATE EXTENSION IF NOT EXISTS pgcrypto;"
+          psql -h localhost -U your_username -d your_database -c "CREATE EXTENSION IF NOT EXISTS pgcrypto;"
 
       - name: Execute Structure and Declarative Constraints
         run: |
