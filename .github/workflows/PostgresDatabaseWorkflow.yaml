@@ -34,7 +34,7 @@ jobs:
           sleep 10
 
           # Print PostgreSQL version for debugging
-          psql -h localhost -U postgres -d my_database -c "SELECT version();"
+          psql -h localhost -U your_username -d your_database -c "SELECT version();"
 
           # Run any initialization scripts
           PGPASSWORD=your_password psql -h localhost -U your_username -d your_database -c "CREATE EXTENSION IF NOT EXISTS pgcrypto;"
