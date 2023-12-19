@@ -1,14 +1,20 @@
 #!/bin/bash
 
+set -e
+
 if [ "$#" -lt 1 ]; then
     echo "Usage: $0 <folder_path>"
     exit 1
 fi
 
-folder_path="$1"
+folder_path="./src/$1"
 echo "Processing folder: $folder_path"
 
-set -e
+db_host="$2"
+db_port="$3"
+db_user="$4"
+db_name="$5"
+db_password="$6"
 
 for file in "$folder_path"/*; do
     if [ -f "$file" ]; then
