@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  build:
+  build-execute:
     runs-on: ubuntu-latest
 
     services:
@@ -46,6 +46,21 @@ jobs:
       
       - name: Execute Structure and Declarative Constraints
         run: |
-          export PGPASSWORD=your_password 
           ./src/scripts/execute_sql_files.sh 1_structure localhost 5432 your_username your_database your_password 
+
+      - name: Execute Declarative Constraints and Triggers
+        run: |
+          ./src/scripts/execute_sql_files.sh 2_automation localhost 5432 your_username your_database your_password 
+
+      - name: Execute Index and Views
+        run: |
+          ./src/scripts/execute_sql_files.sh 3_index_views localhost 5432 your_username your_database your_password 
+
+      - name: Execute Componnets
+        run: |
+          ./src/scripts/execute_sql_files.sh 4_components localhost 5432 your_username your_database your_password 
+      
+      - name: Execute Security
+        run: |
+          ./src/scripts/execute_sql_files.sh 5_security localhost 5432 your_username your_database your_password 
          
