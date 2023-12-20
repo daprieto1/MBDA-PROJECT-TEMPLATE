@@ -49,6 +49,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        
       - name: Execute Structure and Declarative Constraints
         run: |
           export PGPASSWORD=your_password 
