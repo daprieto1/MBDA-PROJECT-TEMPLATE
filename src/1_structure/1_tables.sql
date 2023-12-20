@@ -10,6 +10,5 @@ CREATE TABLE IF NOT EXISTS employees (
 CREATE TABLE IF NOT EXISTS departments (
     id SERIAL,
     department_name VARCHAR(100) NOT NULL,
-    manager_id INT,
-    location VARCHAR(255)
+    manager_id INT
 );
