@@ -16,6 +16,8 @@ db_user="$4"
 db_name="$5"
 db_password="$6"
 
+export PGPASSWORD=$db_password 
+
 for file in "$folder_path"/*; do
     if [ -f "$file" ]; then
         echo "Processing file: $file"
