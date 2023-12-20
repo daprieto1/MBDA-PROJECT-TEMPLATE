@@ -43,7 +43,11 @@ jobs:
 
           # Run script permissions 
           chmod +x ./src/scripts/execute_sql_files.sh
+          
+  structure:
+    runs-on: ubuntu-latest
 
+    steps:
       - name: Execute Structure and Declarative Constraints
         run: |
           export PGPASSWORD=your_password 
