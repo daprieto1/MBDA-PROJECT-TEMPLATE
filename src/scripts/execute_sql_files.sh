@@ -21,6 +21,6 @@ export PGPASSWORD=$db_password
 for file in "$folder_path"/*; do
     if [ -f "$file" ]; then
         echo "Processing file: $file"
-        psql -h localhost -U your_username -d your_database -a -f $file 
+        psql -h localhost -U your_username -d your_database -v ON_ERROR_STOP=1 -a -f $file 
     fi
 done
