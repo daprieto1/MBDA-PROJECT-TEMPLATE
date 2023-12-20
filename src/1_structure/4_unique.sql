@@ -1,1 +1,1 @@
-ALTER TABLE employees ADD CONSTRAINT uk_email UNIQUE (email);
+ALTER TABLE employees ADD constraint uk_email UNIQUE (email);
