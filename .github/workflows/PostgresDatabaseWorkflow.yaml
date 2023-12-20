@@ -83,4 +83,4 @@ jobs:
 
       - name: Lint SQL files
         run: |
-          sqlfluff lint
+          sqlfluff lint --dialect ansi
