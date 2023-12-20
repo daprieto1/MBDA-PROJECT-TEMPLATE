@@ -7,8 +7,7 @@ Fluff is an extensible and modular linter designed to help you write good SQL an
 
 https://docs.sqlfluff.com/en/stable/rules.html
 
-### Fix Lint
 
 ```shell
-sqlfluff fix --dialect ansi
+sqlfluff fix
 ```
