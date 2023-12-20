@@ -45,6 +45,7 @@ jobs:
           chmod +x ./src/scripts/execute_sql_files.sh
           
   structure:
+    needs: build
     runs-on: ubuntu-latest
 
     steps:
