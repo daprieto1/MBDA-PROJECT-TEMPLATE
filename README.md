@@ -18,3 +18,5 @@ https://docs.sqlfluff.com/en/stable/rules.html
 ```shell
 sqlfluff fix
 ```
+
+test
