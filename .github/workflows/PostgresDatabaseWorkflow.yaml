@@ -7,6 +7,27 @@ on:
       - main
 
 jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install sqlfluff
+
+      - name: Lint SQL files
+        run: |
+          sqlfluff lint --dialect postgres
+
   build-execute:
     runs-on: ubuntu-latest
 
@@ -64,24 +85,12 @@ jobs:
       - name: Execute Security
         run: |
           ./src/scripts/execute_sql_files.sh 5_security localhost 5432 your_username your_database your_password 
-  
-  lint:
+
+  check:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Set up Python
-        uses: actions/setup-python@v2
+      - uses: thehanimo/pr-title-checker@v1.4.1
         with:
-          python-version: 3.8
-
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install sqlfluff
-
-      - name: Lint SQL files
-        run: |
-          sqlfluff lint --dialect postgres
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          pass_on_octokit_error: false
+          configuration_path: .github/pr-title-checker-config.json

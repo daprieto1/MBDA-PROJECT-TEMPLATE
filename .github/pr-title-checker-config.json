@@ -1,0 +1,16 @@
+{
+    "LABEL": {
+      "name": "Title needs formatting",
+      "color": "EEEEEE"
+    },
+    "CHECKS": {
+      "prefixes": ["T1:", "T2:", "T3:"],
+      "regexp": "\\[(\\w| )+\\]",
+      "regexpFlags": "i"
+    },
+    "MESSAGES": {
+      "success": "All OK",
+      "failure": "Failing CI test",
+      "notice": ""
+    }
+  }
