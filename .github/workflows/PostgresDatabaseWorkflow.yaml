@@ -2,13 +2,6 @@ name: PostgreSQL Database Workflow
 
 on:
   pull_request_target:
-    types:
-      - opened
-      - edited
-      - synchronize
-      - labeled
-      - unlabeled
-      
   push:
     branches:
       - main
@@ -92,12 +85,3 @@ jobs:
       - name: Execute Security
         run: |
           ./src/scripts/execute_sql_files.sh 5_security localhost 5432 your_username your_database your_password 
-
-  check:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: thehanimo/pr-title-checker@v1.4.1
-        with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          pass_on_octokit_error: false
-          configuration_path: .github/pr-title-checker-config.json
