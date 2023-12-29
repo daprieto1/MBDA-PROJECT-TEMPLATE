@@ -4,8 +4,7 @@
       "color": "FF0000"
     },
     "CHECKS": {
-      "prefixes": ["T1:", "T2:", "T3:"],
-      "regexp": "\\[(\\w| )+\\]",
+      "regexp": "(T1|T2|T3)(:)\\[(\\w| )+\\]",
       "regexpFlags": "i"
     },
     "MESSAGES": {
