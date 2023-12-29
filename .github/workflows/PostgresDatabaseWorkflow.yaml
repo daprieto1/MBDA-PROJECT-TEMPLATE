@@ -1,7 +1,14 @@
 name: PostgreSQL Database Workflow
 
 on:
-  pull_request:
+  pull_request_target:
+    types:
+      - opened
+      - edited
+      - synchronize
+      - labeled
+      - unlabeled
+      
   push:
     branches:
       - main
